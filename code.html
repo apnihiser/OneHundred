@@ -14,7 +14,7 @@
     <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
     
     <link href="/css/site.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="img/adam_p_nihiser_logo_graphic.png">
+    <link rel="icon" type="image/png" href="/img/hundredicon.png">
 
     <link href="css/prism.css" rel="stylesheet">
     
@@ -24,7 +24,7 @@
     <!-- ==== Nav Section ==== -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand logoFont" href="#"><img src="/img/adam_p_nihiser_logo_graphic.png" class="d-inline-block align-text-top" alt="Adam Nihiser Logo" width="24" height="24"> OneHundred</a>
+            <a class="navbar-brand logoFont" href="#"><img src="/img/hundredicon.png" class="d-inline-block align-text-top" alt="OneHundred Logo" width="50" height="50"> OneHundred</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -57,17 +57,104 @@
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                            //Call Hello World
-                            function HelloWord(){
-                                alert("Hello World");
+                        //get the values from the interface
+                        //starts or controller function
+                        function getValues(){
+                            //get values from the page
+                            let startValue = document.getElementById("startValue").value;
+                            let endValue = document.getElementById("endValue").value;
+                        
+                            //We need to validate our input
+                            //attempt to parse into integers
+                            startValue = parseInt(startValue);
+                            endValue =  parseInt(endValue);
+                        
+                            if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+                        
+                                //call generateNumbers
+                                let numbers = generateNumbers(startValue, endValue);
+                        
+                                //call display numbers
+                                displayNumbers(numbers);
+                        
+                            } else {
+                        
+                                alert("You must enter integers");
+                        
                             }
+                        
+                        
+                        }
+                        
+                        //generate numbers from the start value to the endValue
+                        //Logic function(s)
+                        function generateNumbers(sValue, eValue){
+                        
+                            let numbers = [];
+                        
+                            //get all numbers from start to end
+                            for(let i = sValue; i <= eValue; i++){
+                        
+                                //this will execute in a loop until index + eValue
+                                numbers.push(i);
+                            }
+                        
+                            return numbers;
+                        
+                        }
+                        
+                        //display the numbers and  mark even numbers bold
+                        //display or view functions
+                        function displayNumbers(numbers){
+                        
+                            let templateRows = "";
+                        
+                            for (let i = 0; i < numbers.length; i++) {
+                        
+                                let className = "even";
+                                let number = numbers[i];
+                        
+                                if(number % 2 == 0){
+                                    className = "even";
+                                } else {
+                                    className = "odd";
+                                }
+                                templateRows += `&lt;tr>&lt;td class="${className}">${number}&lt;/td>&lt;/tr>`;
+                            }
+                        
+                            document.getElementById("results").innerHTML = templateRows;
+                        
+                        }
                         </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The Code is structured in one function.</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that displays an alert with a message of "Hello World"</p>
+                    <h5>One Hundred - The APP Breakdown</h5>
+                    <p>"One Hundred" is a Javascript application written to gather a beginning value and ending value, validate the information, then render a table containing the range of numbers with all evens displayed in <strong>bold</strong>.</p>
+                    <p>The application is broken down into 3 functions.</p>
+                    <ul>
+                        <li>The Controller function</li>
+                        <li>The Logic function</li>
+                        <li>The View function</li>
+                    </ul>
+                    <br>
+                    <h5>Controller Fuction</h5>
+                    <p>The Controller Function getValues() works on several important discreet operations which receives inputs, validates data, and controls when other functions in the application are executed.</p>
+                    <p>Lets break these features down individually</p>
+                    <h6>Input</h6>
+                    <p>By using a form, we have structured the web application in such a way that either by default or with user defined values, we can capture the necessary information to begin the process of running the application. Once the input values have been entered into the web form, the user can submit the data by click on the button.</p>
+                    <h6>Validation</h6>
+                    <p>Validation is required here since the application will fail if a string or text char is provided by the user. Also the values provided will be a string data type. Therefore the parseInt() and isInteger() Javascript functions are used to ensure that all data sent to be processed are valid. If any of this fails validation, the webpage will alert the user with "You must enter integers"</p>
+                    <h6>Function Calls</h6>
+                    <p>Lastly, this controller function will pass these validated values into the appropriate functions next. Both generateNumbers() and displayNumbers() are self explanatory in their purpose, but see the Logic function and View function below for more details.</p>
+                    <br>
+                    <h5>Logic Function</h5>
+                    <p>The generateNumbers() function does just that. It will accept the validated numbers from getValues() and pass them through a for loop which will increment and push() them into the numbers array until the index in the for loop is equal to the endValue. Once the for loop has been completed the generateNumbers() function will return the array back to the getValues() function</p>
+                    <br>
+                    <h5>View Function</h5>
+                    <p>The numbers array from the generatenumbers() function will need to be rendered on the webpage. Step one will be to loop through the arrays using a for loop. We will be inserting these values into Template Literals by means of a string variable. The HTML that these template literals are saved to will be in the table row, table data format which will be rended into a table with one column. The even numbers will pass a boolean check using modulo to check if the remainder of being divided by two equals 0. Lastly this will be inserted into the HTML page by use of innerHTML Javascript function. </p>
+
+
                 </div>
             </div>
         </div>
@@ -84,10 +171,10 @@
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
                     <div class="row">
-                        <div class="col social"><a href="#" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></div>
-                        <div class="col social"><a href="#" target="_blank"><i class="fab fa-github fa-2x"></i></a></div>
-                        <div class="col social"><a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></div>
-                        <div class="col social"><a href="#" target="_blank"><i class="fab fa-youtube fa-2x"></i></a></div>
+                        <div class="col social"><a href="https://www.linkedin.com/in/anihiser/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></div>
+                        <div class="col social"><a href="https://github.com/apnihiser" target="_blank"><i class="fab fa-github fa-2x"></i></a></div>
+                        <div class="col social"><a href="https://twitter.com/MerkkieMer" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></div>
+                        <div class="col social"><a href="https://www.youtube.com/channel/UCZl9auJaZm4S3sOHCBcxgEQ" target="_blank"><i class="fab fa-youtube fa-2x"></i></a></div>
                     </div>
                 </div>
             </div>

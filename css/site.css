@@ -5,9 +5,17 @@
     --white-color: #e7e7e7;
 }
 
+.odd {
+    font-weight: 100;
+}
+
+.even {
+    font-weight: bold;
+}
+
 .logoFont {
     font-family: 'Magz Regular', Fallback, sans-serif;
-    font-size: x-large;
+    font-size: 2.2em;
     font-style: italic;
 }
 
