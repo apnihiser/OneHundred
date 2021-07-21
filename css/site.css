@@ -74,6 +74,11 @@ code[class*="language-"],
             font-size: 1.5rem;                      
 }
 
+.highlight {
+    color: orangered;
+    font-style: italic;
+}
+
 @font-face {
     font-family: 'Magz Regular';
     font-style: normal;

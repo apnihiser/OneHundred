@@ -139,20 +139,20 @@
                     </ul>
                     <br>
                     <h5>Controller Fuction</h5>
-                    <p>The Controller Function getValues() works on several important discreet operations which receives inputs, validates data, and controls when other functions in the application are executed.</p>
-                    <p>Lets break these features down individually</p>
+                    <p>The Controller Function <span class="highlight">getValues()</span> works on several important discreet operations which receives inputs, validates data, and controls when other functions in the application are executed.</p>
+                    <p>Lets break these operations down individually</p>
                     <h6>Input</h6>
                     <p>By using a form, we have structured the web application in such a way that either by default or with user defined values, we can capture the necessary information to begin the process of running the application. Once the input values have been entered into the web form, the user can submit the data by click on the button.</p>
                     <h6>Validation</h6>
-                    <p>Validation is required here since the application will fail if a string or text char is provided by the user. Also the values provided will be a string data type. Therefore the parseInt() and isInteger() Javascript functions are used to ensure that all data sent to be processed are valid. If any of this fails validation, the webpage will alert the user with "You must enter integers"</p>
+                    <p>Validation is required here since the application will fail if a string or text char is provided by the user. Also the values provided will be a string data type. Therefore the <span class="highlight">parseInt()</span> and <span class="highlight">isInteger()</span> Javascript functions are used to ensure that all data sent to be processed are valid. If any of this fails validation, the webpage will alert the user with "You must enter integers"</p>
                     <h6>Function Calls</h6>
-                    <p>Lastly, this controller function will pass these validated values into the appropriate functions next. Both generateNumbers() and displayNumbers() are self explanatory in their purpose, but see the Logic function and View function below for more details.</p>
+                    <p>Lastly, this controller function will pass these validated values into the appropriate functions next. Both <span class="highlight">generateNumbers()</span> and <span class="highlight">displayNumbers()</span> are self explanatory in their purpose, but see the Logic function and View function below for more details.</p>
                     <br>
                     <h5>Logic Function</h5>
-                    <p>The generateNumbers() function does just that. It will accept the validated numbers from getValues() and pass them through a for loop which will increment and push() them into the numbers array until the index in the for loop is equal to the endValue. Once the for loop has been completed the generateNumbers() function will return the array back to the getValues() function</p>
+                    <p>The <span class="highlight">generateNumbers()</span> function does just that. It will accept the validated numbers from <span class="highlight">getValues()</span> and pass them through a for loop which will increment and <span class="highlight">push()</span> them into the numbers array until the index in the for loop is equal to the endValue. Once the for loop has been completed the <span class="highlight">generateNumbers()</span> function will return the array back to the <span class="highlight">getValues()</span> function</p>
                     <br>
                     <h5>View Function</h5>
-                    <p>The numbers array from the generatenumbers() function will need to be rendered on the webpage. Step one will be to loop through the arrays using a for loop. We will be inserting these values into Template Literals by means of a string variable. The HTML that these template literals are saved to will be in the table row, table data format which will be rended into a table with one column. The even numbers will pass a boolean check using modulo to check if the remainder of being divided by two equals 0. Lastly this will be inserted into the HTML page by use of innerHTML Javascript function. </p>
+                    <p>The numbers array from the <span class="highlight">generatenumbers()</span> function will need to be rendered on the webpage. Step one will be to loop through the arrays using a for loop. We will be inserting these values into Template Literals by means of a string variable. The HTML that these template literals are saved to will be in the table row, table data format which will be rended into a table with one column. The even numbers will pass a boolean check using modulo to check if the remainder of being divided by two equals 0. Lastly this will be inserted into the HTML page by use of innerHTML Javascript function. </p>
 
 
                 </div>
