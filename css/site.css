@@ -5,6 +5,12 @@
     --white-color: #e7e7e7;
 }
 
+.logoFont {
+    font-family: 'Magz Regular', Fallback, sans-serif;
+    font-size: x-large;
+    font-style: italic;
+}
+
 body {
     color: var(--dark-color);
 }
@@ -59,6 +65,13 @@ code[class*="language-"],
             word-wrap: break-word;  
             font-size: 1.5rem;                      
 }
+
+@font-face {
+    font-family: 'Magz Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Magz Regular'), url('/font/Magz.woff') format('woff');
+    }
 
 main>.container {
     padding: 60px 15px 0;
