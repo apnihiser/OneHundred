@@ -40,6 +40,7 @@ function generateNumbers(sValue, eValue){
         numbers.push(i);
     }
 
+    return numbers;
 
 }
 
